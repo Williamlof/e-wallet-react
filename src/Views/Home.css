@@ -1,0 +1,24 @@
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.button {
+  width: 360px;
+  height: 60px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  margin-top: 10rem;
+}

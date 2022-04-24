@@ -1,0 +1,28 @@
+.cardContainer {
+  display: grid;
+  grid-auto-rows: 2.5rem;
+  margin: 2rem;
+}
+
+.card {
+  width: 360px;
+  height: 180px;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+}
+
+.card:nth-child(1) {
+  background-color: #ffae34;
+}
+
+.card:nth-child(2) {
+  background-color: #222222;
+}
+
+.card:nth-child(3) {
+  background-color: #8b58f9;
+}
+
+.card:nth-child(4) {
+  background-color: #f33355;
+}

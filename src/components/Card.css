@@ -1,0 +1,33 @@
+.default-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffae34;
+  width: 360px;
+  height: 220px;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+}
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 1rem;
+}
+
+.cardNumber {
+  font-weight: 400;
+  letter-spacing: 0.08cm;
+  font-size: 1.8rem;
+}
+
+p {
+  margin: 0;
+}
+
+.bottom-container {
+  padding: 0.5rem;
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
