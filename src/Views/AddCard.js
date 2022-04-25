@@ -1,19 +1,12 @@
 
 import Card from "../components/Card";
-import { useState } from 'react'
 import Top from '../components/Top'
 
 import './AddCard.css'
 
 function AddCard(props) {
 
-    const { createCard, handleInputChange, handleInputFocus, setNewCard, allCards } = props
-
-
-
-    const [cardDetails] = useState(setNewCard);
-
-
+    const { createCard, handleInputChange, handleInputFocus, allCards } = props
 
     return (
 
@@ -26,42 +19,51 @@ function AddCard(props) {
                     onSubmit={createCard}
                 >
                     <label htmlFor="cardNumber">CARD NUMBER</label>
-                    <input type="number" name="cardNumber" value={cardnumber}
+                    <input type="text" name="cardNumber"
+                        value={allCards.cardNumber}
                         required
                         onKeyUp={(e) => handleInputChange(e)}
                         onFocus={handleInputFocus}
-                        maxLength={16} />
+                        minLength="16"
+                        maxLength="16" />
 
                     <label htmlFor="cardName">CARDHOLDER NAME</label>
                     <input type="text" name="cardName"
                         required
+                        value={allCards.cardName}
                         onKeyUp={(e) => handleInputChange(e)}
                         onFocus={handleInputFocus} />
                     <section className="inputContainer">
                         <article>
                             <label htmlFor="CCV">CCV</label>
                             <input className="halfWidth"
-                                type="number"
+                                type="text"
                                 name="CCV"
+                                value={allCards.CCV}
                                 required
                                 onKeyUp={(e) => handleInputChange(e)}
                                 onFocus={handleInputFocus}
-                                maxLength={3} />
+                                minLength="3"
+                                maxLength="3" />
                         </article>
                         <article>
                             <label htmlFor="validThru">VALID THRU</label>
                             <input className="halfWidth"
-                                type="date"
+                                type="text"
                                 name="validThru"
-                                required onKeyUp={(e) => handleInputChange(e)}
-                                onFocus={handleInputFocus} />
+                                value={allCards.validThru}
+                                required onChange={(e) => handleInputChange(e)}
+                                onFocus={handleInputFocus}
+                                maxLength="5" />
+
                         </article>
                     </section>
                     <article>
-                        <label htmlFor="vendor">Choose your Vendor</label>
+                        <label htmlFor="cardVendor">Choose your Vendor</label>
                         <select
-                            name="vendor"
+                            name="cardVendor"
                             className="dropDown"
+                            value={allCards.cardVendor}
                             defaultValue={'DEFAULT'}
                             required onClick={handleInputChange}
                             onFocus={handleInputFocus}>

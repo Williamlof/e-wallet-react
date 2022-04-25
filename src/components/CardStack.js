@@ -1,13 +1,19 @@
 import './CardStack.css'
+import Card from './Card'
+function CardStack(props) {
 
-function CardStack() {
+    const { allCards, activeCard } = props
+
+    const newAllCards = [...allCards]
+    newAllCards.splice(0, 1)
+    console.log(newAllCards)
+    const cardStack = newAllCards.map(card =>
+        <Card key={card.id} id={card.id} allCards={card} activeCard={activeCard} />
+    )
 
     return (
         <section className="cardContainer">
-            <article className="card"></article>
-            <article className="card"></article>
-            <article className="card"></article>
-            <article className="card"></article>
+            {cardStack}
         </section>
     )
 }

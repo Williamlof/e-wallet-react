@@ -7,6 +7,10 @@
   border-radius: 0.6rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
 }
+
+.default-card > * {
+  pointer-events: none;
+}
 .top-container {
   display: flex;
   justify-content: space-between;

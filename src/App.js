@@ -8,6 +8,7 @@ import Error from './Views/Error'
 
 function App() {
 
+
   const navigate = useNavigate();
 
   const [addCard, setAddCard] = useState(false)
@@ -21,11 +22,11 @@ function App() {
   }
 
   const [newCard, setNewCard] = useState({
-    cardnumber: 'XXXXXXXXXXXXXXXX',
-    cardname: 'FIRSTNAME LASTNAME',
-    valid: 'MM/YY',
-    ccv: 'XXX',
-    vendor: 'AddCard',
+    cardNumber: 'XXXXXXXXXXXXXXXX',
+    cardName: 'FIRSTNAME LASTNAME',
+    validThru: 'MM/YY',
+    CCV: 'XXX',
+    cardVendor: 'AddCard',
     id: 0
   });
 
@@ -35,28 +36,16 @@ function App() {
   function createCard(e) {
     e.preventDefault();
     setAddCard(addCard)
-    navigate('/')
-    setNewCard({
-      cardname: cardName,
-      cardnumber: cardNumber,
-      valid: cardValid,
-      ccv: cardCcv,
-      vendor: cardVendor,
-      id: allCards.length
-    })
+    console.log(newCard);
+    setAllCards(prevAllCards => [...prevAllCards, newCard]);
+
+    navigate('/');
+
   };
-
-  const [active, setActive] = useState(allCards[0])
-
-  function activeCard(e) {
-    const activeId = allCards.findIndex((cardId => cardId.id === e.target.id))
-    setActive(activeId)
-  };
-
 
 
   function handleInputFocus(e) {
-    setNewCard({ ...newCard, focus: e.target.name });
+    setNewCard({ ...newCard, focus: e.target.name, id: Math.floor(Math.random() * 10000) });
   };
 
   function handleInputChange(e) {
@@ -70,7 +59,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home activeCard={activeCard} newCard={setNewCard} handleClick={handleClick} addCard={addCard} />} />
+        <Route path="/" element={<Home
+          newCard={setNewCard}
+          allCards={allCards}
+          handleClick={handleClick}
+          addCard={addCard} />} />
         <Route path="/addcard" element={<AddCard
           createCard={createCard}
           setNewCard={setNewCard}
